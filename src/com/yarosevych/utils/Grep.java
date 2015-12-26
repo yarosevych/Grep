@@ -1,14 +1,16 @@
-package com.yarosevych;
+package com.yarosevych.utils;
+
+import com.yarosevych.io.Reader;
 
 import java.util.List;
 
 public class Grep {
-    private static ArgumentsParser arguments;
-    private static String filePath;
-    private static String pattern;
-    private static List<String> input;
+    private ArgumentsParser arguments;
+    private String filePath;
+    private String pattern;
+    private List<String> input;
 
-    public static void startGrep(String[] args) {
+    public void startGrep(String[] args) {
         initializeGrep(args);
 
         if (arguments.containHelp()) {
@@ -42,7 +44,7 @@ public class Grep {
         }
     }
 
-    public static void initializeGrep(String[] args) {
+    public void initializeGrep(String[] args) {
         arguments = new ArgumentsParser(args);
         filePath = arguments.getFilePath();
         pattern = arguments.getPattern();

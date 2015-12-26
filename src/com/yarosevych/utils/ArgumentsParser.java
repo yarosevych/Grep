@@ -1,4 +1,4 @@
-package com.yarosevych;
+package com.yarosevych.utils;
 
 import java.util.Arrays;
 import java.util.Iterator;

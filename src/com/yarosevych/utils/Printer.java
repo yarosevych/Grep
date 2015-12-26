@@ -1,4 +1,4 @@
-package com.yarosevych;
+package com.yarosevych.utils;
 
 import java.util.List;
 
@@ -18,8 +18,12 @@ public class Printer {
             "-e PATTERN\n" +
             "Use PATTERN as the pattern.";
 
+    private static final String FILE_LOCATION_ERROR = "Cannot find file using the location you specified. " +
+            "Please check if the specified file location is correct";
+
     public static void printHelp() {
         System.out.println(HELP_MESSAGE);
+        System.exit(1);
     }
 
     /** no arguments */
@@ -123,7 +127,6 @@ public class Printer {
     }
 
     public static void printFileLocationError() {
-        System.out.println("Cannot find file using the location you specified. " +
-                "Please check if the specified file location is correct");
+        System.out.println(FILE_LOCATION_ERROR);
     }
 }
