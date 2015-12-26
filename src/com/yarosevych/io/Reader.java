@@ -2,32 +2,30 @@ package com.yarosevych.io;
 
 import com.yarosevych.utils.Printer;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Reader {
     public static List<String> readFile(String filePath) {
         checkFilePath(filePath);
-        FileReader reader = null;
-        Scanner scanner = null;
         List<String> input = new ArrayList<>();
+        BufferedReader reader = null;
         try {
-            reader = new FileReader(filePath);
-            scanner = new Scanner(reader);
-            while (scanner.hasNextLine()) {
-                input.add(scanner.nextLine());
+            File file = new File(filePath);
+            reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                input.add(line);
             }
-            return input;
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
                 reader.close();
-                scanner.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
